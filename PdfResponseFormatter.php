@@ -41,6 +41,12 @@ class PdfResponseFormatter extends Component implements ResponseFormatterInterfa
 	public $marginHeader = 9;
 
 	public $marginFooter = 9;
+	
+	/**
+	 * @var string 'S' or 'D' for Download
+	 * Default to 'S'
+	 */
+	public $outputType = 'S';
 
 	/**
 	 * @var string 'Landscape' or 'Portrait'
@@ -95,6 +101,6 @@ class PdfResponseFormatter extends Component implements ResponseFormatterInterfa
 		}
 
 		$mpdf->WriteHTML($response->data);
-		return $mpdf->Output('', 'D');
+		return $mpdf->Output('', $this->outputType);
 	}
 }
