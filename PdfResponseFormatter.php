@@ -106,6 +106,6 @@ class PdfResponseFormatter extends Component implements ResponseFormatterInterfa
 		}
 
 		$mpdf->WriteHTML($response->data);
-		return $mpdf->Output($this->$outputName, $this->outputType);
+		return $mpdf->Output($this->outputName, $this->outputType);
 	}
 }
